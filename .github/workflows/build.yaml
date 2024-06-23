@@ -28,10 +28,16 @@ jobs:
       - name: wasm-pack
         run: wasm-pack build --target web --release
 
+      - name: Prepare artifacts
+        run: |
+          mkdir artifacts
+          mv index.html artifacts
+          mv pkg artifacts
+
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./
+          path: ./artifacts
 
   deploy:
     needs: build
