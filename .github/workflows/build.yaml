@@ -28,6 +28,11 @@ jobs:
       - name: wasm-pack
         run: wasm-pack build --target web --release
 
+      - name: Upload build artifacts
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./pkg
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
