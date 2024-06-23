@@ -31,9 +31,7 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v1
         with:
-          path:
-            - index.html
-            - ./pkg
+          path: ./
 
   deploy:
     needs: build
